@@ -47,11 +47,15 @@
         function generateCode() {
             let code = "{\n";
             for (let x = 0; x < 8; x++) {
-                code += "B";
+                code += "  B";
                 for (let y = 0; y < 8; y++) {
                     code += document.getElementById(`cell${x}${y}`).getAttribute("val");
                 }
-                code += ",\n";
+                if (x != 7) {
+                    code += ",\n";
+                } else {
+                    code += "\n";
+                }
             }
             code += "}";
             return code;
